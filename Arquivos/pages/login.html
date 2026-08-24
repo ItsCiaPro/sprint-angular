@@ -7,6 +7,7 @@
     <title>Log In</title>
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/login.css">
+    <script src="../js/login.js" defer></script>
 </head>
 
 <body>
@@ -23,25 +24,25 @@
             <div class="form_container">
                 <h1>Boas-vindas</h1>
 
-                <form class="login_form" action="">
+                <form class="login_form">
 
                     <div class="input_container">
                         <div class="input_wrapper">
-                            <img src="../img/user_icon.svg" class="input_svg" alt="">
-                            <input type="email" name="email" placeholder="Insira seu e-mail" required>
+                            <img src="../img/user_icon.svg" class="input_svg highlight" alt="">
+                            <input type="text" class="emailInput formInput" name="nome" placeholder="Insira seu usuário" required>
                         </div>
 
-                        <img src="../img/info_icon.svg" class="input_svg" alt="information">
+                        <img src="../img/info_icon.svg" class="input_svg highlight" alt="information">
                     </div>
 
                     <div class="input_container">
                         <div class="input_wrapper">
-                            <img src="../img/password_lock_icon.svg" class="input_svg" alt="">
-                            <input type="password" name="password" placeholder="Insira sua senha" required>
+                            <img src="../img/password_lock_icon.svg" class="input_svg highlight" alt="">
+                            <input type="password" class="passInput formInput" name="senha" placeholder="Insira sua senha" required>
 
                             <!--Deixar funcional o botão de esconder a senha-->
                             <div class="hide_container">
-                                <img src="../img/show_icon.svg" class="input_svg" alt="">
+                                <img src="../img/hide_icon.svg" class="input_svg pass_visi_button hidden" alt="">
                             </div>
                         </div>
 
@@ -53,15 +54,17 @@
                         <p>Logar automaticamente</p>
 
                         <label class="switch">
-                            <input type="checkbox" />
+                            <input type="checkbox"/>
                             <span class="slider"></span>
                         </label>
 
-                        <img src="../img/info_icon.svg" class="input_svg" alt="information">
+                        <img src="../img/info_icon.svg" class="input_svg highlight" alt="information">
                     </div>
 
-                    <button class="login_submit" disabled>Entrar</button>
+                    <div class="flex_row">
+                        <button class="login_submit" disabled>Entrar</button>
                     <div class="input_white_space"></div>
+                    </div>
                 </form>
             </div>
 
