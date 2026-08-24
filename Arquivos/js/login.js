@@ -68,10 +68,8 @@ loginForm.addEventListener('submit', async (event) => {
             // Sucesso (Status 200)
             console.log(`Bem-vindo, ${returnData.nome}! (E-mail: ${returnData.email})`);
 
-
-            // Aqui você poderia salvar o ID no localStorage ou redirecionar o usuário:
             // localStorage.setItem('usuarioId', dadosRetornados.id);
-            // window.location.href = '/dashboard.html';
+            window.location.href = '/Arquivos/pages/home.html';
 
             // Erro (Status 400 ou 401)
         } else {
