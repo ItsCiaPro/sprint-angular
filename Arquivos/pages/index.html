@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,12 +8,13 @@
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/login.css">
 </head>
+
 <body>
     <main>
         <div class="bg_image">
             <img src="../img/ranger.png" width="100%" alt="ranger">
         </div>
-        
+
         <div class="login_sidebar">
             <div class="logo">
                 <img src="../img/ford.png" alt="">
@@ -22,13 +24,49 @@
                 <h1>Boas-vindas</h1>
 
                 <form class="login_form" action="">
-                    <input type="email" name="email" placeholder="Insira seu e-mail">
-                    <input type="password" name="password" placeholder="Insira sua senha">
+
+                    <div class="input_container">
+                        <div class="input_wrapper">
+                            <img src="../img/user_icon.svg" class="input_svg" alt="">
+                            <input type="email" name="email" placeholder="Insira seu e-mail" required>
+                        </div>
+
+                        <img src="../img/info_icon.svg" class="input_svg" alt="information">
+                    </div>
+
+                    <div class="input_container">
+                        <div class="input_wrapper">
+                            <img src="../img/password_lock_icon.svg" class="input_svg" alt="">
+                            <input type="password" name="password" placeholder="Insira sua senha" required>
+
+                            <!--Deixar funcional o botão de esconder a senha-->
+                            <div class="hide_container">
+                                <img src="../img/show_icon.svg" class="input_svg" alt="">
+                            </div>
+                        </div>
+
+                        <div class="input_white_space"></div>
+                    </div>
+
+                    <div class="auto_login_container">
+                        
+                        <p>Logar automaticamente</p>
+
+                        <label class="switch">
+                            <input type="checkbox" />
+                            <span class="slider"></span>
+                        </label>
+
+                        <img src="../img/info_icon.svg" class="input_svg" alt="information">
+                    </div>
+
                     <button class="login_submit" disabled>Entrar</button>
+                    <div class="input_white_space"></div>
                 </form>
             </div>
 
         </div>
     </main>
 </body>
+
 </html>

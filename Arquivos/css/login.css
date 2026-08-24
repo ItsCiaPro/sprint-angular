@@ -15,6 +15,8 @@ main {
     opacity: 0.5;
 }
 
+/* SEÇÃO DE LOGIN */
+
 .login_sidebar {
     display: flex;
     flex-direction: column;
@@ -36,6 +38,8 @@ main {
 .logo img {
     width: 100%;
 }
+
+/* FORMULÁRIO DE LOGIN */
 
 .form_container {
     display: flex;
@@ -61,14 +65,13 @@ main {
     width: 100%;
 
     button, input {
-        height: 3rem;
         width: 100%;
         border-radius: 0.5rem;
     }
-}
 
-.login_form input {
-    margin-bottom: 2rem;
+    button {
+        height: 3rem;
+    }
 }
 
 .login_form button {
@@ -79,6 +82,148 @@ main {
 
 .login_form button:disabled {
     background-color: #b7bcbf;
+}
+
+/* INPUTS CUSTOMIZADOS */
+
+.input_container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.input_wrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    width: 100%;
+    min-height: 3rem;
+    padding: 0.3rem 0;
+
+    border: 2px solid rgb(129, 129, 129);
+    border-radius: 0.5rem;
+}
+
+.input_wrapper:focus-within {
+    border: 3px solid black;
+}
+
+.input_wrapper input {
+    background-color: none;
+    outline: none;
+    border: none;
+}
+
+/* Imagens dentro de um input */
+.input_svg {
+    width: 2rem;
+    height: 2rem;
+    margin: 0 0.5rem;
+}
+
+/* Espaço branco */
+.input_white_space {
+    width: 2rem;
+    height: 2rem;
+    margin: 0 0.5rem;
+}
+
+/* O contêiner principal do switch */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+/* Esconde o checkbox nativo */
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.auto_login_container {
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+    align-items: center;
+    margin-bottom: 1rem;
+    width: 100%;
+}
+
+.auto_login_container p{
+    font-size: 1.5rem;
+}
+
+.auto_login_container p, label{
+    margin-left: auto;
+}
+
+/* SLIDER CUSTOMIZADO */
+
+/* O fundo do switch (trilho) */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  scale: 0.9;
+  inset: 0;
+  background-color: #e2e8f0; /* Cinza claro do fundo */
+  border-radius: 34px;
+  transition: background-color 0.3s ease;
+}
+
+/* O círculo deslizante (botão branco) */
+.slider::after {
+  content: "";
+  position: absolute;
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: #ffffff;
+  border-radius: 50%;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+/* O ícone de 'X' desenhado dentro do círculo */
+.slider::before {
+  content: "✕"; /* Caractere Unicode do X */
+  position: absolute;
+  left: 4px;
+  bottom: 4px;
+  width: 26px;
+  height: 26px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  color: #cbd5e1; /* Cinza do X */
+  font-family: sans-serif;
+  z-index: 1; /* Fica acima do círculo */
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+/* ESTADO ATIVO (QUANDO CHECADO) */
+
+/* Muda a cor do fundo */
+input:checked + .slider {
+  background-color: #4ba665; /* Verde ou cor ativa preferida */
+}
+
+/* Move o círculo e o X para a direita */
+input:checked + .slider::after,
+input:checked + .slider::before {
+  transform: translateX(26px);
+}
+
+/* Opcional: Oculta o 'X' ou muda o ícone para um '✓' ao ativar */
+input:checked + .slider::before {
+  content: "✓";
+  color: #4ba665;
 }
 
 @media (max-width: 960px) {
