@@ -28,6 +28,7 @@ main {
 
 .logo {
     width: 30rem;
+    margin-top: 1rem;
     height: auto;
     flex: 1;
 }
@@ -39,6 +40,7 @@ main {
 .form_container {
     display: flex;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
     flex: 4;
 
@@ -48,7 +50,6 @@ main {
 
 .form_container h1{
     font-size: 4rem;
-    margin-top: auto;
     margin-bottom: 5rem;
     color: #45ae95;
 }
@@ -78,4 +79,25 @@ main {
 
 .login_form button:disabled {
     background-color: #b7bcbf;
+}
+
+@media (max-width: 960px) {
+
+   .logo {
+    margin-top: 3rem;
+    width: 20rem;
+    } 
+
+}
+
+@media (max-width: 630px) {
+
+    .bg_image {
+        display: none;
+    }
+
+    .login_sidebar {
+        width: 100%;
+    }
+
 }
