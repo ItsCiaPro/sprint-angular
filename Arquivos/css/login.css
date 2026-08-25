@@ -32,8 +32,6 @@ main {
     display: flex;
     width: 30rem;
     margin-top: 1rem;
-    max-height: fit-content;
-    flex: 1;
 }
 
 .logo img {
