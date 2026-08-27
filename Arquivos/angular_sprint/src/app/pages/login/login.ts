@@ -1,12 +1,17 @@
 import { Component } from '@angular/core';
+import { FormsModule, NgForm } from '@angular/forms';
+import { JsonPipe } from '@angular/common';
+import { loginModel } from '../../../models/login.model';
 
 @Component({
   selector: 'app-login',
-  imports: [],
+  imports: [FormsModule, JsonPipe],
   templateUrl: './login.html',
   styleUrl: './login.css',
 })
 export class Login {
+
+  formloginModel = new loginModel('', '', false);
 
   isPassHidden = true;
 
@@ -27,6 +32,10 @@ export class Login {
       this.isPassHidden = true;
       this.currentPassIcon = this.passHideIcon;
     }
+  }
+
+  onSubmit() {
+    console.log(this.formloginModel.values())
   }
 
 }

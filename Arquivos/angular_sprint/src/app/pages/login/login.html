@@ -10,14 +10,17 @@
 
         <div class="form_container">
             <h1>Boas-vindas</h1>
+            {{ loginForm.value | json }}
 
-            <form class="login_form">
+            {{ formloginModel | json }}
+
+            <form #loginForm="ngForm" class="login_form">
 
                 <div class="input_container">
                     <div class="input_wrapper">
                         <img src="img/user_icon.svg" class="input_svg highlight" alt="">
-                        <input type="text" class="emailInput formInput" name="nome" placeholder="Insira seu usuário"
-                            required>
+                        <input #userInput type="text" class="formInput" name="nome" placeholder="Insira seu usuário"
+                            [(ngModel)]="formloginModel.nome" required>
                     </div>
 
                     <img src="img/info_icon.svg" class="input_svg highlight" alt="information">
@@ -26,12 +29,13 @@
                 <div class="input_container">
                     <div class="input_wrapper">
                         <img src="img/password_lock_icon.svg" class="input_svg highlight" alt="">
-                        <input type="password" class="passInput formInput" name="senha" placeholder="Insira sua senha"
-                            required>
+                        <input #passInput [type]="isPassHidden ? 'password' : 'text'" (input)="0" class="formInput"
+                            name="senha" placeholder="Insira sua senha" [(ngModel)]="formloginModel.senha" required>
 
                         <!--Deixar funcional o botão de esconder a senha-->
                         <div class="hide_container">
-                            <img [src]="currentPassIcon" (click)="AlternatePassVisibility()" class="input_svg pass_visi_button hidden" alt="">
+                            <img [src]="currentPassIcon" (click)="AlternatePassVisibility()"
+                                class="input_svg pass_visi_button hidden" alt="">
                         </div>
                     </div>
 
@@ -43,7 +47,7 @@
                     <p>Logar automaticamente</p>
 
                     <label class="switch">
-                        <input type="checkbox" />
+                        <input type="checkbox" name="logarAuto" [(ngModel)]="formloginModel.logarAuto" />
                         <span class="slider"></span>
                     </label>
 
@@ -51,7 +55,7 @@
                 </div>
 
                 <div class="flex_row">
-                    <button class="login_submit" disabled>Entrar</button>
+                    <button class="login_submit" type="submit" (click)="onSubmit()" [disabled]="!(userInput.value && passInput.value)">Entrar</button>
                     <div class="input_white_space"></div>
                 </div>
             </form>
