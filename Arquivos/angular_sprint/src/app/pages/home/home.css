@@ -1,0 +1,74 @@
+* {
+    --menu_option_brown: rgb(153, 61, 0);
+}
+
+a {
+    text-decoration: none;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden;
+}
+
+main {
+    display: flex;
+    flex: 1;
+    flex-grow: 1;
+    min-height: 100%;
+    flex-direction: column;
+
+    justify-content: center;
+    align-items: center;
+
+    background-image: url('/img/ranger.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 80%;
+}
+
+
+/*----- CARTÃO DE INFORMAÇÃO -----*/
+
+.info_card {
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(255, 255, 255, 0.918);
+    min-width: 65rem;
+
+    max-height: 60rem;
+    height: 80vh;
+    min-height: 10rem;
+
+    justify-self: center;
+    align-self: center;
+
+    border: 2px solid gray;
+    border-radius: 1rem;
+
+    font-size: 2rem;
+    font-weight: 500;
+}
+
+.info_content{
+    padding: 1.5rem;
+    color: #3a97e4;
+}
+
+.info_title {
+    padding: 1.5rem;
+
+    color: rgb(58, 58, 58);
+    border-bottom: 2px solid rgba(128, 128, 128, 0.301);
+}
+
+
+@media (max-width: 680px) {
+
+    .info_card {
+        margin: 0 4rem;
+        min-width: 85%;
+    }
+
+}
