@@ -1,0 +1,273 @@
+
+main {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: row;
+}
+
+.bg_image {
+    display: flex;
+    width: 50%;
+    align-self: center;
+}
+
+.bg_image img {
+    opacity: 0.5;
+}
+
+/*----- SEÇÃO DE LOGIN -----*/
+
+.login_sidebar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    width: 50%;
+    border-left: 8px solid var(--border_gray);
+    background-color: var(--bg_1);
+}
+
+.logo {
+    display: flex;
+    width: 30rem;
+    margin-top: 1rem;
+}
+
+.logo img {
+    width: 100%;
+}
+
+/*----- FORMULÁRIO DE LOGIN -----*/
+
+.form_container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    width: 100%;
+    padding: 0 4rem;
+    margin: auto 0;
+}
+
+.form_container h1{
+    font-size: 4rem;
+    margin-bottom: 5rem;
+    color: var(--highlight);
+}
+
+.login_form{
+    display: flex;
+    flex-direction: column;
+
+    width: 100%;
+
+    button, input {
+        width: 100%;
+        border-radius: 0.5rem;
+    }
+
+    button {
+        height: 4rem;
+    }
+}
+
+.login_form button {
+    border: none;
+    color: white;
+    background-color: #2f98d4;
+}
+
+.login_form button:disabled {
+    background-color: #b7bcbf;
+}
+
+.error_message {
+    position: relative;
+    top: 1.5rem;
+    padding: 10px;
+    border-radius: 1rem;
+
+    text-align: center;
+
+    color: red;
+    background-color: rgba(255, 0, 0, 0.23);
+}
+
+/*----- INPUTS CUSTOMIZADOS -----*/
+
+.input_container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 3rem;
+}
+
+.input_wrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    width: 100%;
+    min-height: 3rem;
+    padding: 0.3rem 0;
+
+    border: 2px solid rgb(129, 129, 129);
+    border-radius: 0.5rem;
+}
+
+.input_wrapper:focus-within {
+    border: 3px solid black;
+}
+
+.input_wrapper input {
+    background-color: none;
+    outline: none;
+    border: none;
+}
+
+/* Imagens dentro de um input */
+.input_svg {
+    width: 2rem;
+    height: 2rem;
+    margin: 0 0.5rem;
+}
+
+.input_svg.highlight {
+    /* Combinação de filtros que formam a cor verde #4ba665*/
+    filter: invert(58%) sepia(25%) saturate(869%) hue-rotate(85deg) brightness(92%) contrast(85%);
+}
+
+/* Botão que alterna a visibilidade da senha */
+.pass_visi_button.hidden {
+filter: invert(55%) sepia(0%) saturate(932%) hue-rotate(145deg) brightness(93%) contrast(78%);
+}
+
+.pass_visi_button:hover {
+    filter: brightness(50%);
+}
+
+/* Espaço branco */
+.input_white_space {
+    width: 2rem;
+    height: 2rem;
+    margin: 0 0.5rem;
+}
+
+.auto_login_container {
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+    align-items: center;
+    margin-bottom: 1rem;
+    width: 100%;
+}
+
+.auto_login_container p{
+    font-size: 1.5rem;
+}
+
+.auto_login_container p, label{
+    margin-left: auto;
+}
+
+/*----- SLIDER CUSTOMIZADO -----*/
+
+/* O contêiner principal do switch */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+/* Esconde o checkbox nativo */
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* O fundo do switch */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  scale: 0.9;
+  inset: 0;
+  background-color: #e2e8f0; /* Cinza claro do fundo */
+  border-radius: 34px;
+  transition: background-color 0.3s ease;
+}
+
+/* O círculo deslizante */
+.slider::after {
+  content: "";
+  position: absolute;
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: #ffffff;
+  border-radius: 50%;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+/* O ícone 'X' dentro do círculo */
+.slider::before {
+  content: "✕";
+  position: absolute;
+  left: 4px;
+  bottom: 4px;
+  width: 26px;
+  height: 26px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  color: #cbd5e1;
+  font-family: sans-serif;
+  z-index: 1;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+/* ESTADO ATIVO*/
+
+/* Muda a cor do fundo */
+input:checked + .slider {
+  background-color: #4ba665; 
+}
+
+/* Move o círculo e o X para a direita */
+input:checked + .slider::after,
+input:checked + .slider::before {
+  transform: translateX(26px);
+}
+
+/* Opcional: Oculta o 'X' ou muda o ícone para um '✓' ao ativar */
+input:checked + .slider::before {
+  content: "✓";
+  color: #4ba665;
+}
+
+@media (max-width: 960px) {
+
+   .logo {
+    margin-top: 3rem;
+    width: 20rem;
+    } 
+
+}
+
+@media (max-width: 800px) {
+
+    .bg_image {
+        display: none;
+    }
+
+    .login_sidebar {
+        width: 100%;
+    }
+
+}
