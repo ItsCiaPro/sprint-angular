@@ -1,13 +1,11 @@
 import { Component } from '@angular/core';
 import { FormsModule, NgForm } from '@angular/forms';
-import { JsonPipe } from '@angular/common';
 import { loginModel } from '../../../models/login.model';
-import { Usuario } from '../../../models/usuario.model';
 import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
-  imports: [FormsModule, JsonPipe],
+  imports: [FormsModule],
   templateUrl: './login.html',
   styleUrl: './login.css',
 })

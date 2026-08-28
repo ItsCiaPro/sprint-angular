@@ -6,7 +6,7 @@ import { Dashboard } from './pages/dashboard/dashboard';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, Home, Invalid404, Dashboard],
+  imports: [RouterOutlet],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
