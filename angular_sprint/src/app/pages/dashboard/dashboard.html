@@ -1,3 +1,4 @@
+<app-navheader></app-navheader>
 
 <main>
 
@@ -11,7 +12,7 @@
          </div>
 
          <div class="card_content">
-            <select name="veiculo" id="">
+            <select [(ngModel)]="currentCarChoice" (ngModelChange)="updateCards()">
                <option value="Ranger">Ranger</option>
                <option value="Mustang">Mustang</option>
                <option value="Territory">Territory</option>
@@ -26,7 +27,7 @@
          </div>
 
          <div class="card_content">
-            <h1>999</h1>
+            <h1>{{ sellTotalAmount }}</h1>
             <h2>Unid.</h2>
          </div>
       </div>
@@ -37,7 +38,7 @@
          </div>
 
          <div class="card_content">
-            <h1>999</h1>
+            <h1>{{ connectedAmount }}</h1>
             <h2>Unid.</h2>
          </div>
       </div>
@@ -48,12 +49,47 @@
          </div>
 
          <div class="card_content">
-            <h1>999</h1>
+            <h1>{{ updateSoftwareAmount }}</h1>
             <h2>Unid.</h2>
          </div>
       </div>
    </div>
 
+   @if (errorMessage !== '') {
+   <div class="flex_row">
+      <p class="error_message">{{ errorMessage }}</p>
+      <div class="input_white_space"></div>
+   </div>
+   }
 
+   <div class="car_image">
+      <img [src]="carImage" width="100%" alt="">
+   </div>
+
+   <table>
+      <tr>
+         <th>Código - Vin</th>
+         <th>Odômetro</th>
+         <th>Nível de Combustível</th>
+         <th>Status</th>
+         <th>Lat.</th>
+         <th>Long.</th>
+      </tr>
+
+      <tr>
+         <td>
+            <input type="text" name="vin" id="">
+         </td>
+         <td>?</td>
+         <td>?</td>
+         <td>?</td>
+         <td>?</td>
+         <td>?</td>
+      </tr>
+
+      <tr>
+         <div></div>
+      </tr>
+   </table>
 
 </main>

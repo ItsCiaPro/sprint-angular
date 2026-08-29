@@ -1,26 +1,31 @@
-
-body {
-    display: flex;
-    flex-direction: column;
-    overflow-x: hidden;
+:host {
+   display: flex;
+   flex-direction: column;
+   height: 100vh;
+   box-sizing: border-box;
 }
 
 main {
-    display: flex;
-    flex: 1;
-    flex-grow: 1;
-    min-height: 100vh;
-    flex-direction: column;
+   position: relative;
+   display: flex;
+   flex: 1;
+   flex-grow: 1;
+   flex-direction: column;
 
-    align-items: center;
+   justify-content: space-between;
+   align-items: center;
+
+   align-items: center;
+   overflow-y: auto;
 }
 
 .dashboard_title {
    font-size: 4rem;
+   font-size: clamp(2.5rem, 4vw ,4rem);
    font-weight: bold;
    color: #21539c;
 
-   margin-bottom: 3rem;
+   margin-bottom: 2rem;
 }
 
 .info_cards {
@@ -37,8 +42,8 @@ main {
 .card {
    display: flex;
    flex-direction: column;
-   min-width: 22rem;
-   max-width: 22rem;
+   min-width: 30rem;
+   max-width: 30rem;
 
    border-radius: 0.5rem;
    border: 2px solid rgb(160, 160, 160);
@@ -59,24 +64,128 @@ main {
 }
 
 .card_content {
-   padding: 3rem 2rem;
+   padding: 6rem 2rem;
 }
 
 .card_content select {
    background-color: white;
-   padding: 1rem 1.5rem;
+   padding: 2rem 1.5rem;
    width: 100%;
 
    border-radius: 0.5rem;
 }
 
 .card_content h1 {
-   font-size: 3rem;
+   font-size: 4rem;
    font-weight: bold;
    color: #2692cc;
 }
 
 .card_content h2 {
-   font-size: 1.5rem;
+   font-size: 2rem;
    color: rgb(88, 88, 88);
+}
+
+
+.car_image {
+   display: flex;
+   justify-content: center;
+
+   width: 100%;
+}
+
+.error_message {
+    position: relative;
+    top: 1.5rem;
+    padding: 10px;
+    border-radius: 1rem;
+
+    text-align: center;
+
+    color: red;
+    background-color: rgba(255, 0, 0, 0.23);
+}
+
+.car_image img {
+   min-width: 400px;
+   width: 40%;
+   object-fit: contain;
+}
+
+/* TABLES */
+
+table {
+   position: relative;
+   bottom: 0;
+   width: 100%;
+   background-color: #21539c;
+}
+
+tr div {
+   background-color: #21539c;
+   height: 2rem;
+}
+
+td,
+th {
+   text-align: left;
+   border: 1px solid black;
+}
+
+th {
+   color: white;
+   font-size: 2rem;
+   padding: 1rem;
+}
+
+td {
+   background-color: white;
+   padding: 1.5rem;
+}
+
+td input {
+   width: 70%;
+}
+
+@media (max-width: 1370px) {
+
+   .card {
+      min-width: 22rem;
+   }
+
+   .card_title h1 {
+      font-size: 3rem;
+   }
+
+   .card_content {
+      padding: 3rem 2rem;
+   }
+
+
+   .card_content h1 {
+      font-size: 3rem;
+   }
+
+   .card_content h2 {
+      font-size: 1.5rem;
+   }
+
+   .card_content select {
+      padding: 1rem 1.5rem;
+   }
+}
+
+@media (max-width: 880px) {
+
+   .card {
+      min-width: 15rem;
+   }
+
+   .card_title h1 {
+      font-size: 1.5rem;
+   }
+
+   .card_content {
+      padding: 1rem 1rem;
+   }
 }

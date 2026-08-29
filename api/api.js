@@ -43,6 +43,7 @@ app.post("/login", async (req, res) => {
 
 app.get("/vehicles", (req, res) => {
     try {
+
         const vehicles = [
             {
                 id: 1,
