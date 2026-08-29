@@ -78,13 +78,13 @@
 
       <tr>
          <td>
-            <input type="text" name="vin" id="">
+            <input type="text" #codeInput (keyup.enter)="fetchVehiclesData(codeInput.value)" name="vin" id="">
          </td>
-         <td>?</td>
-         <td>?</td>
-         <td>?</td>
-         <td>?</td>
-         <td>?</td>
+         <td>{{ odometroValue || '' }} Km</td>
+         <td>{{ nivelCombustivelValue || '' }} %</td>
+         <td>{{ statusValue || '' }}</td>
+         <td>{{ latValue || '' }}</td>
+         <td>{{ longValue || '' }}</td>
       </tr>
 
       <tr>
