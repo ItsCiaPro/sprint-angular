@@ -24,15 +24,22 @@
 </header>
 
 <div class="side_menu" [class.hidden]="!isMenuOpen">
-    <div class="logo">
-        <img src="img/ford.png" width="100%" alt="">
+    <div class="flex_row align_center space_between">
+        <div class="logo">
+            <img src="img/ford.png" width="100%" alt="">
+        </div>
+
+        <div class="close_menu_btn" (click)="CloseMenu()">
+            <img src="img/close.svg" width="100%" alt="">
+        </div>
     </div>
 
-    <button class="menu_option selected" (click)="CloseMenu()">
+
+    <button class="menu_option" [class.selected]="router.url === '/home'" (click)="ChangePage('/home')">
         Home
     </button>
 
-    <button class="menu_option" (click)="ChangePage('/dashboard')">
+    <button class="menu_option" [class.selected]="router.url === '/dashboard'" (click)="ChangePage('/dashboard')">
         Dashboard
     </button>
 </div>

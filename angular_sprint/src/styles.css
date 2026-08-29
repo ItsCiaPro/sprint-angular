@@ -83,6 +83,10 @@ table {
 	justify-content: center;
 }
 
+.space_between {
+	justify-content: space-between;
+}
+
 .align_center {
 	align-items: center;
 }

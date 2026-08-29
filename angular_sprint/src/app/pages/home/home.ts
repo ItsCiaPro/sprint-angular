@@ -9,5 +9,4 @@ import { Navheader } from "../../components/navheader/navheader";
 })
 
 export class Home {
-
 }

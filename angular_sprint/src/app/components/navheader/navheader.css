@@ -173,6 +173,26 @@ header {
     padding: 1rem 2rem;
 }
 
+.close_menu_btn {
+    width: 4rem;
+    height: 4rem;
+    padding: 0.5rem;
+    margin-right: 2rem;
+
+    border: 2px solid rgb(158, 158, 158);
+    border-radius: 100%;
+
+    transition: scale 50ms ease-in-out;
+}
+
+.close_menu_btn:hover {
+    background-color: rgba(0, 0, 0, 0.187);
+}
+
+.close_menu_btn:active {
+    scale: 0.9;
+}
+
 .menu_option {
     display: flex;
     width: 100%;

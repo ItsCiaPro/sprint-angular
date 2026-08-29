@@ -16,7 +16,7 @@ export class Navheader {
   rawUserData = sessionStorage.getItem('user');
   userEmail = this.rawUserData ? JSON.parse(this.rawUserData).email : null;
 
-  constructor(private router: Router) {
+  constructor(public router: Router) {
   }
 
   ChangePage(path: string) {
