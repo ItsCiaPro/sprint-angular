@@ -2,11 +2,11 @@ import { Component } from '@angular/core';
 import { Navheader } from '../../components/navheader/navheader';
 import { FormsModule } from '@angular/forms';
 import { Veiculo, VeiculoData } from '../../../models/veiculo.model';
-import { JsonPipe } from '@angular/common';
+import { FetchGet, FetchPost } from '../../services/fetch';
 
 @Component({
   selector: 'app-dashboard',
-  imports: [Navheader, FormsModule, JsonPipe],
+  imports: [Navheader, FormsModule],
   templateUrl: './dashboard.html',
   styleUrl: './dashboard.css',
 })
@@ -30,7 +30,10 @@ export class Dashboard {
   latValue: number | string = 0;
   longValue: number | string = 0;
 
-  constructor() {
+  constructor(
+    private fetchPost: FetchPost,
+    private fetchGet: FetchGet
+  ) {
     this.fetchVehicles();
   }
 

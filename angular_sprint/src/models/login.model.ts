@@ -4,8 +4,4 @@ export class loginModel {
         public senha: string,
         public logarAuto: boolean
     ){}
-
-    values() {
-        return {nome: this.nome, senha: this.senha, logarAuto: this.logarAuto}
-    }
 }

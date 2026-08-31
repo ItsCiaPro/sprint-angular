@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormsModule, NgForm } from '@angular/forms';
 import { loginModel } from '../../../models/login.model';
 import { Router } from '@angular/router';
+import { Usuario } from '../../../models/usuario.model';
 
 @Component({
   selector: 'app-login',
@@ -40,7 +41,7 @@ export class Login {
 
   async onSubmit() {
   
-    const formData = this.formloginModel.values();
+    const { nome, senha } = this.formloginModel;
 
     try {
       console.log('ok')
@@ -49,7 +50,7 @@ export class Login {
         headers: {
           'Content-Type': 'application/json'
         },
-        body: JSON.stringify(formData)
+        body: JSON.stringify({nome, senha})
       });
 
       const returnData = await res.json();
