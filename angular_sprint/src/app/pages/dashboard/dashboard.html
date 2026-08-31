@@ -66,7 +66,7 @@
       <img [src]="carImage" width="100%" alt="">
    </div>
 
-   <table>
+   <table class="h_table">
       <tr>
          <th>Código - Vin</th>
          <th>Odômetro</th>
@@ -90,6 +90,42 @@
       <tr>
          <div></div>
       </tr>
+   </table>
+
+   <table class="v_table">
+      <tr>
+         <th>Código - Vin</th>
+         <td>
+            <input type="text" #codeInput (keyup.enter)="fetchVehiclesData(codeInput.value)" name="vin" id="">
+         </td>
+      </tr>
+
+      <tr>
+         <th>Odômetro</th>
+         <td>{{ odometroValue || '' }} Km</td>
+      </tr>
+
+      <tr>
+         <th>Nível de Combustível</th>
+         <td>{{ nivelCombustivelValue || '' }} %</td>
+      </tr>
+
+      <tr>
+         <th>Status</th>
+         <td>{{ statusValue || '' }}</td>
+      </tr>
+
+      <tr>
+         <th>Lat.</th>
+         <td>{{ latValue || '' }}</td>
+      </tr>
+
+      <tr>
+         <th>Long.</th>
+         <td>{{ longValue || '' }}</td>
+      </tr>
+
+      t
    </table>
 
 </main>

@@ -21,7 +21,7 @@ main {
 
 .dashboard_title {
    font-size: 4rem;
-   font-size: clamp(2.5rem, 4vw ,4rem);
+   font-size: clamp(2.5rem, 4vw, 4rem);
    font-weight: bold;
    color: #21539c;
 
@@ -95,15 +95,15 @@ main {
 }
 
 .error_message {
-    position: relative;
-    top: 1.5rem;
-    padding: 10px;
-    border-radius: 1rem;
+   position: relative;
+   top: 1.5rem;
+   padding: 10px;
+   border-radius: 1rem;
 
-    text-align: center;
+   text-align: center;
 
-    color: red;
-    background-color: rgba(255, 0, 0, 0.23);
+   color: red;
+   background-color: rgba(255, 0, 0, 0.23);
 }
 
 .car_image img {
@@ -113,6 +113,11 @@ main {
 }
 
 /* TABLES */
+
+.v_table {
+   position: relative;
+   display: none;
+}
 
 table {
    position: relative;
@@ -189,4 +194,16 @@ td input {
    .card_content {
       padding: 1rem 1rem;
    }
+}
+
+@media (max-width: 730px) {
+
+   .v_table {
+      display: block;
+   }
+
+   .h_table {
+      display: none;
+   }
+
 }

@@ -2,11 +2,12 @@ import { Component } from '@angular/core';
 import { Navheader } from '../../components/navheader/navheader';
 import { FormsModule } from '@angular/forms';
 import { Veiculo, VeiculoData } from '../../../models/veiculo.model';
-import { FetchGet, FetchPost } from '../../services/fetch';
+import { Fetch } from '../../services/fetch';
 
 @Component({
   selector: 'app-dashboard',
   imports: [Navheader, FormsModule],
+  providers: [Fetch],
   templateUrl: './dashboard.html',
   styleUrl: './dashboard.css',
 })
@@ -30,10 +31,7 @@ export class Dashboard {
   latValue: number | string = 0;
   longValue: number | string = 0;
 
-  constructor(
-    private fetchPost: FetchPost,
-    private fetchGet: FetchGet
-  ) {
+  constructor(private fetchService: Fetch) {
     this.fetchVehicles();
   }
 
@@ -66,59 +64,37 @@ export class Dashboard {
 
   // Faz requisição dos dados dos carros para os cards
   async fetchVehicles() {
-    try {
-      const res = await fetch('http://localhost:3001/vehicles');
+    this.errorMessage = '';
+    const res = await this.fetchService.get('http://localhost:3001/vehicles');
 
-      const returnData = await res.json();
 
-      if (res.ok) {
-
-        // Armazena cada JsonObject como um modelo de veiculo
-        this.vehicleList = returnData.vehicles as Veiculo[];
-        this.updateCards();
-
-        this.errorMessage = '';
-        // Erro (Status 400 ou 401)
-      } else {
-        this.errorMessage = returnData.message;
-      }
+    if (res instanceof Error) {
+      return this.errorMessage = res.message;
     }
 
-    catch (error) {
-      // Erro de Rede ou Servidor Caído (Status 500)
-      this.errorMessage = 'Falha na comunicação com o servidor!';
-    }
+    // Armazena cada JsonObject como um modelo de veiculo
+    this.vehicleList = res.vehicles as Veiculo[];
+    this.updateCards();
+    return;
   }
 
 
   async fetchVehiclesData(code: string) {
-    try {
-      const res = await fetch('http://localhost:3001/vehicleData', {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json" // Informa ao Express que o corpo é JSON
-        },
-        body: JSON.stringify({ vin: code }) // Transforma o objeto em texto string
-      });
+    this.errorMessage = '';
 
-      const returnData = await res.json();
+    const res = await this.fetchService.post(
+      'http://localhost:3001/vehicleData',
+      JSON.stringify({ vin: code }));
 
-      if (res.ok) {
-
-        const data = returnData as VeiculoData;
-        this.updateTable(data);
-
-        this.errorMessage = '';
-        // Erro (Status 400 ou 401)
-      } else {
-        this.errorMessage = returnData.message;
-      }
+    if (res instanceof Error) {
+      return this.errorMessage = res.message;
     }
 
-    catch (error) {
-      // Erro de Rede ou Servidor Caído (Status 500)
-      this.errorMessage = 'Falha na comunicação com o servidor!';
-    }
+    const data = res as VeiculoData;
+    this.updateTable(data);
+
+    return;
   }
+
 }
 
