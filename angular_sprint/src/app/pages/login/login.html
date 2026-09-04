@@ -17,7 +17,7 @@
                     <div class="input_wrapper">
                         <img src="img/user_icon.svg" class="input_svg highlight" alt="">
                         <input #userInput type="text" class="formInput" name="nome" placeholder="Insira seu usuário"
-                            [(ngModel)]="formloginModel.nome" required>
+                            [(ngModel)]="usuarioLogin.nome" required>
                     </div>
 
                     <img src="img/info_icon.svg" class="input_svg highlight" alt="information">
@@ -27,7 +27,7 @@
                     <div class="input_wrapper">
                         <img src="img/password_lock_icon.svg" class="input_svg highlight" alt="">
                         <input #passInput [type]="isPassHidden ? 'password' : 'text'" (input)="0" class="formInput"
-                            name="senha" placeholder="Insira sua senha" [(ngModel)]="formloginModel.senha" required>
+                            name="senha" placeholder="Insira sua senha" [(ngModel)]="usuarioLogin.senha" required>
 
                         <!--Deixar funcional o botão de esconder a senha-->
                         <div class="hide_container">
@@ -44,7 +44,7 @@
                     <p>Logar automaticamente</p>
 
                     <label class="switch">
-                        <input type="checkbox" name="logarAuto" [(ngModel)]="formloginModel.logarAuto" />
+                        <input type="checkbox" name="logarAuto"/>
                         <span class="slider"></span>
                     </label>
 

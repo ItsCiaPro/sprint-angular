@@ -3,6 +3,7 @@ import { FormsModule, NgForm } from '@angular/forms';
 import { loginModel } from '../../../models/login.model';
 import { Router } from '@angular/router';
 import { Usuario } from '../../../models/usuario.model';
+import { Auth } from '../../services/auth';
 
 @Component({
   selector: 'app-login',
@@ -12,7 +13,10 @@ import { Usuario } from '../../../models/usuario.model';
 })
 export class Login {
 
-  formloginModel = new loginModel('', '', false);
+  usuarioLogin = {
+    nome: '',
+    senha: ''
+  }
 
   isPassHidden = true;
 
@@ -22,8 +26,9 @@ export class Login {
 
   errorMessage = '';
 
-  constructor(private router: Router) {
-  }
+  constructor(
+    private router: Router,
+    private auth: Auth) { }
 
   AlternatePassVisibility() {
     // Mostra a senha
@@ -39,44 +44,20 @@ export class Login {
     }
   }
 
-  async onSubmit() {
-  
-    const { nome, senha } = this.formloginModel;
-
-    try {
-      console.log('ok')
-      const res = await fetch('http://localhost:3001/login', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({nome, senha})
-      });
-
-      const returnData = await res.json();
-
-      if (res.ok) {
-
-        const usuario = {
-          id: returnData.id,
-          nome: returnData.nome,
-          email: returnData.email
-        }
-
-        sessionStorage.setItem('user', JSON.stringify(usuario));
-        
-        this.router.navigate(['home']);
-
-        // Erro (Status 400 ou 401)
-      } else {
-        this.errorMessage = returnData.message;
-      }
-    }
-
-    catch (error) {
-      // Erro de Rede ou Servidor Caído (Status 500)
-      this.errorMessage = 'Falha na comunicação com o servidor!';
-    }
+  onSubmit() {
+    this.login()
   }
 
+  async login() {
+
+    this.auth.login(this.usuarioLogin).subscribe({
+      next: (res) => {
+        sessionStorage.setItem('user', JSON.stringify(res));
+        this.router.navigate(['home']);
+      },
+      error: (err) => {
+        this.errorMessage = `Falha no login: ${err}`
+      }
+    })
+  }
 }
